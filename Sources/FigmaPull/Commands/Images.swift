@@ -11,7 +11,7 @@ struct Images: AsyncParsableCommand {
     var scale: Double?
 
     @Option(help: "jpg, png, svg, or pdf")
-    var format: FigmaV1.GetFileImages.Query.Format
+    var format: FigmaV1.GetFileImages.Query.Format = .svg
 
     @Option(
         name: .customLong("svg_outline_text"),

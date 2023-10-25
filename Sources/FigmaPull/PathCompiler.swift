@@ -158,13 +158,13 @@ struct FigmaQueryCompiler: QueryPathCompiler {
 
 // MARK: - FigmaRootPathNode
 
-protocol FigmaRootPathNode {
+protocol FigmaRootPathNode: FigmaV1.Nodes.Node {
     static func rootIDs(session: FigmaSession, id: String) async throws -> [NodeLocation]
 }
 
 // MARK: - FigmaV1.Component + FigmaRootPathNode
 
-extension FigmaV1.Component: FigmaRootPathNode {
+extension FigmaV1.Nodes.Component: FigmaRootPathNode {
     static func rootIDs(session: FigmaSession, id: String) async throws -> [NodeLocation] {
         preconditionFailure()
     }
@@ -172,7 +172,7 @@ extension FigmaV1.Component: FigmaRootPathNode {
 
 // MARK: - FigmaV1.ComponentSet + FigmaRootPathNode
 
-extension FigmaV1.ComponentSet: FigmaRootPathNode {
+extension FigmaV1.Nodes.ComponentSet: FigmaRootPathNode {
     static func rootIDs(session: FigmaSession, id: String) async throws -> [NodeLocation] {
         let componentSet = try await session.getComponentSet(.init(rawValue: id))
 
