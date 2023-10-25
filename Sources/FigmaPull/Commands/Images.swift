@@ -133,8 +133,7 @@ struct Images: AsyncParsableCommand {
                 let name = node.name
                 let parentName = node.parent?.name ?? ""
 
-                let path = "\(parentName)_\(name)"
-                    .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed.subtracting(.init(charactersIn: "/")).union(.init(charactersIn: " ")))!
+                let path = "\(parentName)_\(name)".replacingOccurrences(of: "/", with: "_")
 
                 let saveToURL = outputPath.appending(component: path).appendingPathExtension(format.rawValue)
 
