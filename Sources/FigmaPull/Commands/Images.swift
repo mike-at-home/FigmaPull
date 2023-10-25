@@ -133,10 +133,10 @@ struct Images: AsyncParsableCommand {
                 let name = node.name
                 let parentName = node.parent?.name ?? ""
 
-                let path = "\(parentName)_\(name).\(format.rawValue)"
-                    .addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                let path = "\(parentName)_\(name)"
+                    .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed.subtracting(.init(charactersIn: "/")).union(.init(charactersIn: " ")))!
 
-                let saveToURL = outputPath.appending(component: path)
+                let saveToURL = outputPath.appending(component: path).appendingPathExtension(format.rawValue)
 
                 let (localURL, response) = try await urlSession.download(from: url)
                 try FileManager.default.moveItem(at: localURL, to: saveToURL)
