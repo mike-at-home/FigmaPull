@@ -489,7 +489,14 @@ extension FigmaV1Service {
     public static func response(from response: (Data, URLResponse)) throws -> Response {
         let (data, resp) = response
 
-        return try FigmaV1.decoder.decode(Response.self, from: data)
+        do {
+            return try FigmaV1.decoder.decode(Response.self, from: data)
+        } catch {
+            if let str = String(data: data, encoding: .utf8) {
+                print("here")
+            }
+            throw error
+        }
     }
 
     public typealias Query = _EmptyQuery

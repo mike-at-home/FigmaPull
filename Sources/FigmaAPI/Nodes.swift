@@ -156,7 +156,7 @@ extension FigmaV1 {
             public var transitionEasining: EasingType?
             public var opacity: Double
             public var absoluteBoundingBox: FigmaV1.Rectangle
-            public var absoluteRenderBounds: FigmaV1.Rectangle
+            public var absoluteRenderBounds: FigmaV1.Rectangle?
             public var size: FigmaV1.Vector
             public var relativeTransform: Transform
             public var clipsContent: Bool
@@ -239,7 +239,7 @@ extension FigmaV1 {
                 public var transitionEasining: EasingType?
                 public var opacity: Double?
                 public var absoluteBoundingBox: FigmaV1.Rectangle
-                public var absoluteRenderBounds: FigmaV1.Rectangle
+                public var absoluteRenderBounds: FigmaV1.Rectangle?
                 public var size: FigmaV1.Vector
                 public var relativeTransform: Transform
                 public var clipsContent: Bool
@@ -286,7 +286,7 @@ extension FigmaV1 {
             public var transitionEasing: EasingType?
             public var opacity: Double
             public var absoluteBoundingBox: FigmaV1.Rectangle
-            public var absoluteRenderBounds: FigmaV1.Rectangle
+            public var absoluteRenderBounds: FigmaV1.Rectangle?
 //                public var effects: [Effect]
             public var size: FigmaV1.Vector
             public var relativeTransform: Transform
@@ -351,7 +351,7 @@ extension FigmaV1 {
                 public var transitionEasing: EasingType?
                 public var opacity: Double?
                 public var absoluteBoundingBox: FigmaV1.Rectangle
-                public var absoluteRenderBounds: FigmaV1.Rectangle
+                public var absoluteRenderBounds: FigmaV1.Rectangle?
 //                public var effects: [Effect]
                 public var size: FigmaV1.Vector
                 public var relativeTransform: Transform
